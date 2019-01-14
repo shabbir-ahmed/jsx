@@ -1,12 +1,35 @@
+// Import the React and ReactDOM libraries
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// Create a react component
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+class App extends React.Component {
+
+    render(){
+        const headingTag = this.props.head;
+        return (
+            <div>
+                <h1>{headingTag}</h1>
+                <p>{this.props.sub}</p>
+            </div>
+        );
+    }
+}
+
+// const App = (props) => {
+//     const headingTag = props.head;
+//     return (
+//         <div>
+//             <h1>{headingTag}</h1>
+//             <p>{props.sub}</p>
+//         </div>
+//     );
+// };
+
+// Take the react component and it on the screen
+
+ReactDOM.render(
+    <App head="This is JSX syntax" sub="This also jsx sub syntax" />,
+    document.querySelector("#root")
+);
